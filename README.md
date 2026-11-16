@@ -1,341 +1,326 @@
-# ADYPU B.Tech AI & DS – Object-Oriented Programming (OOPs Lab) & Mini Project
+# ADYPU B.Tech AI & DS – OOPs Lab & Expense Tracker Mini Project
 
-[![C++ Standard](https://img.shields.io/badge/C%2B%2B-14%2F17-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B17)
+[![C++ Standard](https://img.shields.io/badge/C%2B%2B-11%2F14%2F17-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B)
 [![University](https://img.shields.io/badge/University-Ajeenkya%20DY%20Patil%20University-purple.svg)]()
 [![Department](https://img.shields.io/badge/Department-Artificial%20Intelligence%20%26%20Data%20Science-red.svg)]()
-[![Status](https://img.shields.io/badge/Status-Lab%20Submission%20Ready-success.svg)]()
+[![Status](https://img.shields.io/badge/Status-Complete-success.svg)]()
 
-This repository contains the complete laboratory practical assignments (Experiments 01 to 10) and the capstone **Expense Tracker (Extended Version)** mini project for the **Object-Oriented Programming with C++** course, Department of Artificial Intelligence and Data Science at **Ajeenkya DY Patil University (ADYPU)**.
+This repository contains the complete laboratory practical assignments (Experiments 01 to 10) and the capstone **Expense Tracker (Extended Version)** mini project for the **Object-Oriented Programming (OOPs Lab)** course, Department of Artificial Intelligence and Data Science at **Ajeenkya DY Patil University (ADYPU)**.
 
 ---
 
 ## Table of Contents
 
-1. [Repository Overview](#repository-overview)
-2. [Project Folder Structure](#project-folder-structure)
-3. [Summary of 10 Lab Experiments](#summary-of-10-lab-experiments)
-4. [Mini Project – Expense Tracker (Extended Version)](#mini-project--expense-tracker-extended-version)
-5. [Prerequisites & Compiler Requirements](#prerequisites--compiler-requirements)
-6. [Compilation and Execution Guide](#compilation-and-execution-guide)
-7. [Git Version Control & Suggested Commit Workflow](#git-version-control--suggested-commit-workflow)
-8. [Viva Voce Preparation & Key OOPs Q&A](#viva-voce-preparation--key-oops-qa)
+1. [Folder Structure](#1-folder-structure)
+2. [Experiment Descriptions & Code Breakdown](#2-experiment-descriptions--code-breakdown)
+3. [Mini Project: Expense Tracker (Extended Version)](#3-mini-project-expense-tracker-extended-version)
+4. [Compilation & Execution Guide](#4-compilation--execution-guide)
+5. [Git Version Control & Suggested Commits](#5-git-version-control--suggested-commits)
+6. [Key OOPs Concepts & Viva Voce Q&A](#6-key-oops-concepts--viva-voce-qa)
 
 ---
 
-## 1. Repository Overview
-
-Each experiment is written in standard modern C++ (C++14/C++17), following clean coding standards, extensive comments explaining underlying compiler mechanics, safe dynamic memory allocation, and robust input validation.
-
-| Exp No. | File Name | Experiment Title | Core OOPs Concept |
-| :---: | :--- | :--- | :--- |
-| **01** | `exp_01.cpp` | C++ Fundamentals | Data types, constants, operators, console I/O |
-| **02** | `exp_02.cpp` | Classes and Objects | Encapsulation, access specifiers (`private`, `protected`, `public`) |
-| **03** | `exp_03.cpp` | Constructors & Rule of Five | Deep copy, move semantics, RAII, zero memory leaks |
-| **04** | `exp_04.cpp` | Inheritance Hierarchies | Single & Multilevel inheritance, constructor/destructor ordering |
-| **05** | `exp_05.cpp` | Runtime Polymorphism | Abstract base class, pure virtual functions, dynamic dispatch (`VTABLE`) |
-| **06** | `exp_06.cpp` | Compile-Time Polymorphism | Function overloading, operator overloading (`+`, `-`, `*`, `<<`, `>>`) |
-| **07** | `exp_07.cpp` | Generic Stack Templates | Template classes, type genericity (`int`, `float`, `string`), exceptions |
-| **08** | `exp_08.cpp` | STL Containers & Algorithms | `std::vector`, `map`, `unordered_map`, `sort`, `find_if`, `transform` |
-| **09** | `exp_09.cpp` | Custom Exception Hierarchy | Custom exceptions inheriting from `std::exception`, polymorphic catch |
-| **10** | `exp_10.cpp` | CSV File Reader & Writer | File I/O (`fstream`), stream pointers (`seekg`, `seekp`, `tellg`, `tellp`) |
-| **Capstone**| `Mini_Project/` | Expense Tracker Mini Project | End-to-end OOP system: ABC, inheritance, stack, friend functions |
-
----
-
-## 2. Project Folder Structure
+## 1. Folder Structure
 
 ```text
 OOPs Lab/
 │
-├── exp_01.cpp                  # Experiment 01: C++ Fundamentals
-├── exp_02.cpp                  # Experiment 02: Classes and Objects
-├── exp_03.cpp                  # Experiment 03: Constructors & Rule of Five
-├── exp_04.cpp                  # Experiment 04: Inheritance
-├── exp_05.cpp                  # Experiment 05: Runtime Polymorphism
-├── exp_06.cpp                  # Experiment 06: Compile-Time Polymorphism
-├── exp_07.cpp                  # Experiment 07: Generic Stack using Templates
-├── exp_08.cpp                  # Experiment 08: STL Containers & Algorithms
-├── exp_09.cpp                  # Experiment 09: Custom Exception Hierarchy
-├── exp_10.cpp                  # Experiment 10: CSV File Reader/Writer
+├── exp_01.cpp                      # Experiment 01: C++ Fundamentals
+├── exp_02.cpp                      # Experiment 02: Classes and Objects (BankAccount & SavingsAccount)
+├── exp_03.cpp                      # Experiment 03: Constructors & Rule of Five (Student Class)
+├── exp_04.cpp                      # Experiment 04: Single & Multilevel Inheritance (University Management)
+├── exp_05.cpp                      # Experiment 05: Runtime Polymorphism (Shape Hierarchy)
+├── exp_06.cpp                      # Experiment 06: Compile-Time Polymorphism (Complex Numbers)
+├── exp_07.cpp                      # Experiment 07: Generic Stack using Templates (int, float, string)
+├── exp_08.cpp                      # Experiment 08: STL Containers & Algorithms (Student Marks Dataset)
+├── exp_09.cpp                      # Experiment 09: Custom Banking Exception Hierarchy
+├── exp_10.cpp                      # Experiment 10: CSV File Reader/Writer using File Pointers
 │
 ├── Mini_Project/
 │   └── Expense_Tracker/
-│       ├── include/            # Header interface files (.h)
-│       │   ├── Expense.h       # Abstract base class
-│       │   ├── Food.h          # Derived category: Food
-│       │   ├── Travel.h        # Derived category: Travel
-│       │   ├── Clothing.h      # Derived category: Clothing
-│       │   ├── Accommodation.h # Derived category: Accommodation
-│       │   ├── Savings.h       # Derived category: Savings (isSaving = true)
-│       │   └── Stack.h         # LIFO stack (capacity 20) with friend functions
-│       │
-│       ├── src/                # Implementation source files (.cpp)
-│       │   ├── Expense.cpp
-│       │   ├── Food.cpp
-│       │   ├── Travel.cpp
-│       │   ├── Clothing.cpp
-│       │   ├── Accommodation.cpp
-│       │   ├── Savings.cpp
-│       │   ├── Stack.cpp
-│       │   └── main.cpp        # Application entry point & interactive menu
-│       │
-│       ├── docs/               # Architecture diagrams and documentation
-│       │   └── UML_Diagram.png # High-resolution UML Class Diagram
-│       │
-│       ├── README.md           # Dedicated Mini Project documentation
-│       └── .gitignore          # Mini project ignore rules
+│       ├── expence_tracker.cpp     # Complete C++ Expense Tracker (Extended Version)
+│       └── README.md               # Mini Project Documentation & Walkthrough
 │
-├── README.md                   # Root documentation and lab manual
-└── .gitignore                  # Root Git ignore rules (binaries, build artifacts)
+└── README.md                       # Root Lab Documentation
 ```
 
 ---
 
-## 3. Summary of 10 Lab Experiments
+## 2. Experiment Descriptions & Code Breakdown
 
-### Experiment 01 – C++ Fundamentals (`exp_01.cpp`)
-- Demonstrates primitive types (`int`, `float`, `double`, `char`, `bool`), string objects, and storage sizes using `sizeof`.
-- Illustrates constant variables (`const double PI`, `const int MAX_SCORE`) preventing inadvertent mutation.
-- Demonstrates arithmetic, relational, and logical operators with formatted output (`iomanip`).
-- Implements interactive console I/O using `cin` and `cout`.
-
-### Experiment 02 – Classes and Objects (`exp_02.cpp`)
-- Models a `BankAccount` system demonstrating the three access specifiers:
-  - `private`: Hides critical state variables (`accountNumber`, `balance`, `transactionCount`).
-  - `protected`: Exposes holder details (`ownerName`, `contactNumber`) to derived entities.
-  - `public`: Exposes validated business methods (`deposit`, `withdraw`, `displayAccountSummary`).
-- Strictly enforces encapsulation through validation guards.
-
-### Experiment 03 – Constructors and Rule of Five (`exp_03.cpp`)
-- Demonstrates the canonical **Rule of Five** for dynamic resource management:
-  1. Default constructor (initializes empty state).
-  2. Parameterized constructor (allocates heap buffer).
-  3. Copy constructor (performs deep copy to prevent pointer aliasing).
-  4. Move constructor (steals buffer pointer from rvalue reference `&&`).
-  5. Copy assignment operator (guards self-assignment `this == &other` & performs deep copy).
-  6. Move assignment operator (transfers ownership cleanly).
-  7. Destructor (safely deallocates array memory using `delete[]`).
-
-### Experiment 04 – Inheritance Hierarchies (`exp_04.cpp`)
-- Implements an academic university management hierarchy:
-  $$\text{Person} \longrightarrow \text{Student} \longrightarrow \text{GraduateStudent}$$
-- Demonstrates **Single Inheritance** (`Person` to `Student`) and **Multilevel Inheritance** (`Person` to `Student` to `GraduateStudent`).
-- Logs constructor execution order (Base $\rightarrow$ Intermediate $\rightarrow$ Derived) and destructor reverse destruction order.
-- Demonstrates member function reuse via explicit scope resolution (`Person::displayInfo()`).
-
-### Experiment 05 – Runtime Polymorphism (`exp_05.cpp`)
-- Builds an abstract `Shape` class containing pure virtual functions:
-  $$\text{virtual double area() const = 0;}$$
-- Derives concrete shapes: `Circle`, `Rectangle`, and `Triangle`.
-- Demonstrates dynamic binding at runtime via base class pointers and references through the Virtual Table (`VTABLE`).
-- Employs a `virtual ~Shape()` destructor to prevent undefined behavior during polymorphic deletions.
-
-### Experiment 06 – Compile-Time Polymorphism (`exp_06.cpp`)
-- Implements static polymorphism using a `Complex` number class.
-- Demonstrates **Function Overloading**: Multiple `display()` methods with differing signatures.
-- Demonstrates **Operator Overloading**: Overloads binary operators `+`, `-`, `*`, `==`.
-- Overloads stream insertion `operator<<` and extraction `operator>>` for natural stream syntax.
-- Replicates lab syllabus prompt: First number ($2 + 3i$) + Second number ($4 + 5i$) = Sum ($6 + 8i$).
-
-### Experiment 07 – Generic Stack using Templates (`exp_07.cpp`)
-- Implements a generic `Stack<T>` class template parameterized over arbitrary types.
-- Provides essential operations: `push()`, `pop()`, `peek()`, `display()`, `isEmpty()`, `isFull()`.
-- Incorporates robust boundary checks throwing `std::underflow_error` and handling overflow.
-- Instantiated and verified with `int`, `float`, and `std::string`.
-
-### Experiment 08 – STL Containers and Algorithms (`exp_08.cpp`)
-- Processes a realistic student marks dataset using the C++ Standard Template Library.
-- Utilizes containers:
-  - `std::vector` for sequential student records.
-  - `std::map` for ordered roll number search.
-  - `std::unordered_map` for $O(1)$ grade frequency distribution counting.
-- Employs STL algorithms:
-  - `std::sort()` with lambda comparator for descending marks ranking.
-  - `std::transform()` for percentage calculation and grade assignment.
-  - `std::find_if()` to locate distinction scorers ($\ge 85\%$).
-
-### Experiment 09 – Custom Exception Hierarchy (`exp_09.cpp`)
-- Implements custom exception classes derived from `std::exception`:
-  - Base: `BankException`
-  - Derived: `InsufficientBalanceException` (tracks balance deficit)
-  - Derived: `InvalidAmountException` (flags negative or zero amounts)
-- Implements `try`, `throw`, and `catch` blocks with polymorphic base reference catching (`catch (const BankException& e)`).
-
-### Experiment 10 – CSV File Reader/Writer (`exp_10.cpp`)
-- Implements persistent student record storage using C++ file streams (`std::fstream`, `ifstream`, `ofstream`).
-- Automatically creates `student_records.csv` if absent.
-- Appends and reads comma-separated records.
-- Directly demonstrates file stream pointers:
-  - `seekp()` & `tellp()` for write position navigation.
-  - `seekg()` & `tellg()` for read position seeking and byte size calculation.
+### Experiment 01: C++ Fundamentals
+- **File**: [`exp_01.cpp`](exp_01.cpp)
+- **Concepts Demonstrated**:
+  - Fundamental data types: `int`, `float`, `double`, `char`, `bool`, and `string`.
+  - Constants: `const int MAX_MARKS = 100` and `const float PI = 3.14`.
+  - Input operations: `getline(cin, name)` and stream extraction `cin >>`.
+  - Arithmetic operators: `+`, `-`, `*`, `/`, `%` and percentage calculation `(marks / MAX_MARKS) * 100`.
+  - Relational operators: `(age >= 18)`.
+  - Conditional (ternary) operator: `grade = (percentage >= 75) ? 'A' : 'B'`.
+  - Logical operators: `passed = (marks >= 40 && marks <= MAX_MARKS)`.
+  - Formatted console output with `cout` and `endl`.
 
 ---
 
-## 4. Mini Project – Expense Tracker (Extended Version)
-
-The **Expense Tracker Mini Project** is located in `Mini_Project/Expense_Tracker/`. It complies with all architectural, functional, and academic specifications outlined in the curriculum reference PDF.
-
-### Key Architecture:
-- **`Expense`**: Abstract Base Class (`name`, `amount`, pure virtual `display()`, virtual destructor, overloaded `show()`, friend `showDetails()`).
-- **Category Subclasses**: `Food`, `Travel`, `Clothing`, `Accommodation`, and `Savings`.
-- **Business Rule**: `Savings::isSaving()` returns `true`. The friend function `totalExpense()` filters out savings records, guaranteeing that **savings are never added into total expenses**.
-- **`Stack`**: Fixed-capacity array storing up to 20 `Expense*` pointers with runtime polymorphic dispatch and memory leak protection.
-- **UML Diagram**: Located at `Mini_Project/Expense_Tracker/docs/UML_Diagram.png`.
-
----
-
-## 5. Prerequisites & Compiler Requirements
-
-- **C++ Compiler**: GCC (`g++`) version 6.0+ or Clang or MSVC.
-- **Standard**: C++14 or C++17 (`-std=c++14` or `-std=c++17`).
-- **Operating System**: Windows, Linux, or macOS.
-
-> **Windows Security Note**: On Windows 11 with *Smart App Control* enabled, newly compiled local `.exe` files created without a digital certificate may trigger a security notification when executed from untrusted directories. To test executables smoothly, use VS Code's integrated runner or add your project workspace folder to Windows Defender's Exclusion list.
-
-> **Memory Verification (Valgrind)**: Valgrind is a Linux-native tool. On Windows systems without WSL, memory correctness is verified through rigorous RAII compliance, virtual destructors, and explicit delete sweeps in destructors. On Linux/WSL, execute `valgrind --leak-check=full ./<executable>`.
+### Experiment 02: Classes and Objects
+- **File**: [`exp_02.cpp`](exp_02.cpp)
+- **Concepts Demonstrated**:
+  - **Encapsulation**: Private data members (`accountNumber`, `balance`), protected member (`accountHolder`), and public member functions.
+  - Base class **`BankAccount`**:
+    - Constructor initializing account number, holder name, and balance.
+    - Member function `deposit(double amount)` with validation (`amount > 0`).
+    - Member function `displayDetails()` for account overview.
+    - Public accessor `getBalance()` providing controlled access to private balance.
+  - Derived class **`SavingsAccount`** (Single Inheritance):
+    - Derived data member `interestRate`.
+    - Constructor chaining to base class: `: BankAccount(accNo, name, bal)`.
+    - Member function `calculateInterest()`: Computes interest using `getBalance() * interestRate / 100`.
+    - Member function `displaySavings()` displaying full account details and interest rate.
+  - Demonstrated with sample object: `SavingsAccount account(101, "Atharav", 10000, 5)`.
 
 ---
 
-## 6. Compilation and Execution Guide
+### Experiment 03: Constructors and the Rule of Five
+- **File**: [`exp_03.cpp`](exp_03.cpp)
+- **Concepts Demonstrated**:
+  - Implementation of the **Rule of Five** for safe dynamic memory management:
+    1. **Default Constructor**: `Student()` initializes `marks = nullptr`, `size = 0`.
+    2. **Parameterized Constructor**: `Student(int n, int value)` dynamically allocates `marks = new int[size]` and populates elements.
+    3. **Copy Constructor (Deep Copy)**: `Student(const Student& other)` allocates separate heap memory and copies elements to prevent pointer aliasing.
+    4. **Move Constructor**: `Student(Student&& other) noexcept` steals pointer from rvalue object and sets source pointer to `nullptr`.
+    5. **Copy Assignment Operator**: `Student& operator=(const Student& other)` with self-assignment check (`if (this != &other)`), frees old memory, and allocates deep copy.
+    6. **Move Assignment Operator**: `Student& operator=(Student&& other) noexcept` frees existing buffer, transfers resource ownership, and resets source.
+    7. **Destructor**: `~Student()` frees heap memory using `delete[] marks`.
+  - Verified with `static_cast<Student&&>` to trigger move operations cleanly.
 
-### Compiling Individual Experiments:
+---
+
+### Experiment 04: Single & Multilevel Inheritance
+- **File**: [`exp_04.cpp`](exp_04.cpp)
+- **Hierarchy**:
+  $$\text{Person} \xrightarrow{\text{Single}} \text{Student} \xrightarrow{\text{Multilevel}} \text{GraduateStudent}$$
+- **Concepts Demonstrated**:
+  - **`Person` (Base Class)**: Protected attributes `name`, `age`; `displayPerson()`.
+  - **`Student` (Single Inheritance)**: Inherits from `Person`, adds `rollNo`, `course`; calls `displayPerson()`, adds `displayStudent()`.
+  - **`GraduateStudent` (Multilevel Inheritance)**: Inherits from `Student`, adds `researchTopic`, `guideName`; calls `displayStudent()`, adds `displayGraduate()`.
+  - Observes constructor execution order: Base $\rightarrow$ Intermediate $\rightarrow$ Derived.
+  - Tested with: `"Atharav"`, age 20, roll 101, course `"B.Tech AI & DS"`, topic `"Artificial Intelligence"`, guide `"Dr. Sharma"`.
+
+---
+
+### Experiment 05: Runtime Polymorphism
+- **File**: [`exp_05.cpp`](exp_05.cpp)
+- **Concepts Demonstrated**:
+  - Abstract base class **`Shape`** with:
+    - Pure virtual function: `virtual double area() = 0;`
+    - Virtual function: `virtual void display()`
+    - Virtual destructor: `virtual ~Shape() {}`
+  - Derived classes overriding `area()` and `display()`:
+    - **`Circle`**: `area() = 3.14 * radius * radius`
+    - **`Rectangle`**: `area() = length * breadth`
+    - **`Triangle`**: `area() = 0.5 * base * height`
+  - Dynamic binding: Base class pointers (`Shape* s1, *s2, *s3`) bound to derived objects at runtime (`s1 = &c; s1->display();`).
+
+---
+
+### Experiment 06: Compile-Time Polymorphism
+- **File**: [`exp_06.cpp`](exp_06.cpp)
+- **Concepts Demonstrated**:
+  - **`Complex`** class with private data members `float real, imag`.
+  - **Function Overloading**:
+    - `display()`: Prints `real + imag i`.
+    - `display(string message)`: Prints a custom message prefix before the complex number.
+  - **Operator Overloading**:
+    - `Complex operator+(Complex c)`: Adds real and imaginary parts of two complex numbers.
+    - `Complex operator-(Complex c)`: Subtracts real and imaginary parts of two complex numbers.
+  - Tested with: $c_1(10, 5)$ and $c_2(4, 3) \implies c_1 + c_2 = 14 + 8i$, $c_1 - c_2 = 6 + 2i$.
+
+---
+
+### Experiment 07: Generic Stack using Templates
+- **File**: [`exp_07.cpp`](exp_07.cpp)
+- **Concepts Demonstrated**:
+  - Template class: `template <class T> class Stack`.
+  - Fixed-size array buffer `T arr[100]` and `int top`.
+  - Member functions:
+    - `push(T value)`: Pushes value, with stack overflow check (`top == 99`).
+    - `pop()`: Pops value, with stack underflow check (`top == -1`).
+    - `display()`: Displays all elements from top to bottom.
+  - Type genericity tested with three distinct types:
+    - `Stack<int>` (values: 10, 20, 30)
+    - `Stack<float>` (values: 10.5, 20.5, 30.5)
+    - `Stack<string>` (values: `"Hello"`, `"C++"`, `"Programming"`)
+
+---
+
+### Experiment 08: STL Containers & Algorithms
+- **File**: [`exp_08.cpp`](exp_08.cpp)
+- **Concepts Demonstrated**:
+  - **`std::vector<pair<string, int>>`**: Dynamic list of student marks (`{"Atharav", 95}`, `{"Rahul", 85}`, `{"Aarti", 90}`, `{"Meenakshi", 76}`, `{"Rohan", 70}`).
+  - **`std::sort`**: Sorts students in descending order of marks using a lambda comparator (`[](auto a, auto b) { return a.second > b.second; }`).
+  - **`std::find_if`**: Searches for the first student scoring marks $> 85$.
+  - **`std::transform`**: Computes percentages (`percentages[i] = s.second / 5.0f`).
+  - **`std::map<string, string>`**: Stores student grades (`A+` for $\ge 90$, `A` for $\ge 80$, `B` for $\ge 70$, `C` otherwise).
+  - **`std::unordered_map<int, string>`**: Hash table storing roll numbers to student names (Rolls 101 to 105).
+
+---
+
+### Experiment 09: Custom Exception Hierarchy
+- **File**: [`exp_09.cpp`](exp_09.cpp)
+- **Concepts Demonstrated**:
+  - Custom exception inheritance from `std::exception`:
+    - Base: `class BankException : public exception` with `const char* what() const noexcept override`.
+    - Derived: `class InsufficientBalance : public BankException`.
+    - Derived: `class InvalidAmount : public BankException`.
+  - `BankAccount` class with balance validation:
+    - `deposit(double amount)`: Throws `InvalidAmount` if `amount <= 0`.
+    - `withdraw(double amount)`: Throws `InvalidAmount` if `amount <= 0`, throws `InsufficientBalance` if `amount > balance`.
+  - `try`, `throw`, and `catch` blocks with polymorphic and specific exception catching.
+
+---
+
+### Experiment 10: CSV File Reader/Writer with File Pointers
+- **File**: [`exp_10.cpp`](exp_10.cpp)
+- **Concepts Demonstrated**:
+  - File stream operations using `fstream file`.
+  - Opens `"students.csv"` with mode `ios::in | ios::out | ios::trunc`.
+  - Writes CSV header (`RollNo,Name,Marks`) and initial records (`101,Atharav,95`, `102,Rahul,85`, `103,Aarti,90`).
+  - Direct stream pointer manipulation:
+    - **`tellp()`**: Queries current write position.
+    - **`seekp(0, ios::end)`**: Moves write pointer to end of file to append record (`104,Meenakshi,88`).
+    - **`file.flush()`**: Flushes write buffer to disk.
+    - **`seekg(0, ios::beg)`**: Rewinds read pointer to the beginning of the file.
+    - **`tellg()`**: Queries current read position.
+  - Reads and displays records row by row using `getline(file, line)`.
+
+---
+
+## 3. Mini Project: Expense Tracker (Extended Version)
+
+- **File**: [`Mini_Project/Expense_Tracker/expence_tracker.cpp`](Mini_Project/Expense_Tracker/expence_tracker.cpp)
+- **Documentation**: [`Mini_Project/Expense_Tracker/README.md`](Mini_Project/Expense_Tracker/README.md)
+
+### Key Features:
+1. **Abstract Base Class `Expense`**: Defines `# name`, `# amount`, default, parameterized, and copy constructors, virtual destructor, pure virtual `virtual void display() const = 0;`, overloaded `show()` functions, and friend function `showDetails()`.
+2. **Derived Categories**: `Food`, `Travel`, `Clothing`, `Accommodation`, and `Savings`.
+3. **Savings Isolation**: `Savings::isSaving()` returns `true`. The friend function `totalExpense()` skips savings records, ensuring **savings are never included in total expenses**.
+4. **Stack Data Structure**: Array of 20 pointers (`Expense *records[20]`, `top`), with `push()`, `pop()`, and polymorphic `displayAll()`.
+5. **Memory Safety**: `pop()` deletes removed records; the `~Stack()` destructor frees all remaining records on exit.
+6. **10-Option Menu**: Add Food, Travel, Clothing, Accommodation, Savings, Remove Last Record, Display All Records, Show Total Expenses, Show Total Savings, and Exit.
+
+---
+
+## 4. Compilation & Execution Guide
+
+### Compiling Experiments:
+Each experiment compiles independently using standard `g++`:
 
 ```bash
-# Experiment 01: C++ Fundamentals
-g++ -std=c++14 -Wall -Wextra exp_01.cpp -o exp_01
+# Experiment 01
+g++ exp_01.cpp -o exp_01
 ./exp_01
 
-# Experiment 02: Classes and Objects
-g++ -std=c++14 -Wall -Wextra exp_02.cpp -o exp_02
+# Experiment 02
+g++ exp_02.cpp -o exp_02
 ./exp_02
 
-# Experiment 03: Constructors & Rule of Five
-g++ -std=c++14 -Wall -Wextra exp_03.cpp -o exp_03
+# Experiment 03
+g++ exp_03.cpp -o exp_03
 ./exp_03
 
-# Experiment 04: Inheritance
-g++ -std=c++14 -Wall -Wextra exp_04.cpp -o exp_04
+# Experiment 04
+g++ exp_04.cpp -o exp_04
 ./exp_04
 
-# Experiment 05: Runtime Polymorphism
-g++ -std=c++14 -Wall -Wextra exp_05.cpp -o exp_05
+# Experiment 05
+g++ exp_05.cpp -o exp_05
 ./exp_05
 
-# Experiment 06: Compile-Time Polymorphism
-g++ -std=c++14 -Wall -Wextra exp_06.cpp -o exp_06
+# Experiment 06
+g++ exp_06.cpp -o exp_06
 ./exp_06
 
-# Experiment 07: Generic Stack Templates
-g++ -std=c++14 -Wall -Wextra exp_07.cpp -o exp_07
+# Experiment 07
+g++ exp_07.cpp -o exp_07
 ./exp_07
 
-# Experiment 08: STL Containers & Algorithms
-g++ -std=c++14 -Wall -Wextra exp_08.cpp -o exp_08
+# Experiment 08
+g++ exp_08.cpp -o exp_08
 ./exp_08
 
-# Experiment 09: Custom Exception Hierarchy
-g++ -std=c++14 -Wall -Wextra exp_09.cpp -o exp_09
+# Experiment 09
+g++ exp_09.cpp -o exp_09
 ./exp_09
 
-# Experiment 10: CSV File Reader/Writer
-g++ -std=c++14 -Wall -Wextra exp_10.cpp -o exp_10
+# Experiment 10
+g++ exp_10.cpp -o exp_10
 ./exp_10
 ```
 
-### Compiling and Running the Expense Tracker Mini Project:
-
-From the `Mini_Project/Expense_Tracker/` directory:
-
+### Compiling and Running the Mini Project:
 ```bash
 cd Mini_Project/Expense_Tracker
-g++ -std=c++14 -Wall -Wextra -Iinclude src/*.cpp -o expense_tracker
-./expense_tracker
+g++ expence_tracker.cpp -o expence_tracker
+./expence_tracker
 ```
+*(On Windows Command Prompt / PowerShell, run `expence_tracker.exe`)*
 
 ---
 
-## 7. Git Version Control & Suggested Commit Workflow
+## 5. Git Version Control & Suggested Commits
 
-To push this repository to your personal GitHub profile, run the following commands in your terminal:
+You can push this repository to your GitHub profile using the following clean commit sequence:
 
 ```bash
-# Initialize local Git repository
+# Initialize git repository
 git init
 
-# Configure user identity
+# Configure user details
 git config user.name "Your Name"
 git config user.email "your.email@adypu.edu.in"
 
-# Commit Experiment 01
-git add exp_01.cpp
-git commit -m "Add experiment 01 - C++ fundamentals"
+# Sequential commits for experiments
+git add exp_01.cpp && git commit -m "Add experiment 01 - C++ fundamentals"
+git add exp_02.cpp && git commit -m "Add experiment 02 - Classes and objects"
+git add exp_03.cpp && git commit -m "Add experiment 03 - Rule of Five"
+git add exp_04.cpp && git commit -m "Add experiment 04 - Inheritance"
+git add exp_05.cpp && git commit -m "Add experiment 05 - Runtime polymorphism"
+git add exp_06.cpp && git commit -m "Add experiment 06 - Operator overloading"
+git add exp_07.cpp && git commit -m "Add experiment 07 - Templates"
+git add exp_08.cpp && git commit -m "Add experiment 08 - STL containers and algorithms"
+git add exp_09.cpp && git commit -m "Add experiment 09 - Custom exception handling"
+git add exp_10.cpp && git commit -m "Add experiment 10 - CSV file handling"
 
-# Commit Experiment 02
-git add exp_02.cpp
-git commit -m "Add experiment 02 - Classes and objects"
-
-# Commit Experiment 03
-git add exp_03.cpp
-git commit -m "Add experiment 03 - Rule of Five"
-
-# Commit Experiment 04
-git add exp_04.cpp
-git commit -m "Add experiment 04 - Inheritance"
-
-# Commit Experiment 05
-git add exp_05.cpp
-git commit -m "Add experiment 05 - Runtime polymorphism"
-
-# Commit Experiment 06
-git add exp_06.cpp
-git commit -m "Add experiment 06 - Operator overloading"
-
-# Commit Experiment 07
-git add exp_07.cpp
-git commit -m "Add experiment 07 - Templates"
-
-# Commit Experiment 08
-git add exp_08.cpp
-git commit -m "Add experiment 08 - STL containers and algorithms"
-
-# Commit Experiment 09
-git add exp_09.cpp
-git commit -m "Add experiment 09 - Custom exception handling"
-
-# Commit Experiment 10
-git add exp_10.cpp
-git commit -m "Add experiment 10 - CSV file handling"
-
-# Commit Mini Project & Documentation
-git add Mini_Project/ README.md .gitignore
+# Mini project commit
+git add Mini_Project/ README.md
 git commit -m "Add Expense Tracker mini project"
 
-# Link to GitHub remote and push (replace with your repo URL)
+# Push to your GitHub repository
 git branch -M main
-git remote add origin https://github.com/<your-username>/oops-lab-adypu.git
+git remote add origin https://github.com/<your-username>/oops-lab.git
 git push -u origin main
 ```
 
 ---
 
-## 8. Viva Voce Preparation & Key OOPs Q&A
+## 6. Key OOPs Concepts & Viva Voce Q&A
 
-1. **Q: Why must a base class destructor be declared `virtual`?**
-   - **A**: If a derived class object is deleted through a base class pointer (`delete basePtr;`), declaring the base destructor `virtual` ensures the derived class destructor executes first, followed by the base class destructor. Without `virtual`, only the base destructor runs, causing resource leaks.
+1. **Q: What is the Rule of Five in C++?**
+   - **A**: If a class manages dynamic resources, it should explicitly implement: Destructor, Copy Constructor, Copy Assignment Operator, Move Constructor, and Move Assignment Operator.
 
-2. **Q: What is the difference between shallow copy and deep copy?**
-   - **A**: Shallow copy copies pointer values directly, causing both objects to point to the exact same heap memory block (leading to double-free corruption). Deep copy allocates new memory and duplicates the underlying data.
+2. **Q: What is a pure virtual function?**
+   - **A**: A virtual function declared with `= 0` in a base class (e.g., `virtual void display() const = 0;`). It has no implementation in the base class and makes the class abstract, forcing all derived classes to override it.
 
-3. **Q: What is the Rule of Five in modern C++?**
-   - **A**: If a class manages dynamic resources and implements any one of: Destructor, Copy Constructor, Copy Assignment, Move Constructor, or Move Assignment Operator, it should explicitly implement all five.
+3. **Q: Why is a virtual destructor necessary?**
+   - **A**: When deleting a derived object via a base-class pointer (`delete basePtr`), a virtual destructor ensures the derived class destructor is called first, preventing memory leaks and undefined behavior.
 
-4. **Q: How does dynamic dispatch work internally?**
-   - **A**: Classes containing virtual functions have an internal **Virtual Table (`VTABLE`)** containing pointers to their virtual functions. Each object contains a hidden pointer (**`VPTR`**) pointing to this table, resolved at runtime.
+4. **Q: What is the difference between `tellp()` and `tellg()`?**
+   - **A**: `tellp()` returns the current position of the **put/write** pointer in an output stream, while `tellg()` returns the current position of the **get/read** pointer in an input stream.
 
-5. **Q: In the Expense Tracker, how are savings kept separate from expenses?**
-   - **A**: The base class `Expense` defines `virtual bool isSaving() const { return false; }`. The derived class `Savings` overrides it to return `true`. When calculating expenses, `totalExpense()` skips any record where `isSaving()` is `true`.
+5. **Q: How does the Expense Tracker keep savings separate from expenses?**
+   - **A**: The base class `Expense` defines `virtual bool isSaving() const { return false; }`, and `Savings` overrides it to return `true`. In `totalExpense()`, the condition `if (!s.records[i]->isSaving())` ensures savings are excluded from total expenses.
 
 ---
 
 *Author: B.Tech Artificial Intelligence and Data Science Student, ADYPU*  
-*Academic Year: 2024–2026*
+*Course: Object-Oriented Programming (OOPs Lab)*
